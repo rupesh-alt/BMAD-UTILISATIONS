@@ -1,0 +1,37 @@
+{
+    "repository_type": "monorepo",
+    "parts": [
+        {
+            "part_id": "api",
+            "root_path": "directus/api",
+            "project_type_id": "backend",
+            "dependencies": [
+                "packages/utils",
+                "packages/constants"
+            ]
+        },
+        {
+            "part_id": "app",
+            "root_path": "directus/app",
+            "project_type_id": "web",
+            "dependencies": [
+                "sdk",
+                "packages/utils"
+            ]
+        },
+        {
+            "part_id": "sdk",
+            "root_path": "directus/sdk",
+            "project_type_id": "library",
+            "dependencies": []
+        }
+    ],
+    "integration_points": [
+        {
+            "from": "app",
+            "to": "api",
+            "type": "REST/GraphQL",
+            "description": "Frontend communicates with Backend via SDK"
+        }
+    ]
+}
